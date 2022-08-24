@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Faraz Piracha's Portfolio</title>
+    <link type="text/css" rel="stylesheet" href="stylesheet.css" />
+  </head>
+
+  <body>
+    <h1 class="margin"> Independent Study Project </h1>
+    <p class="margin"> Towards the end of my Computer Science I course, we were tasked with creating an Independent Study Project (ISP)  using swift. I collaborated with two of my classmates (Sophie Hews and Jana Daouk) to create a game called "Lavacado Run". </p>
+    <h2 class="margin"> Concept </h2>
+    <p class="margin"> In the game, you play as Princess Avocado and have to jump through various obstacles to save Prince Lettuce. It is an infinite runner so the game keeps going until your character dies. </p>
+    <h2 class="margin"> Motivation </h2>
+    <p class="margin"> Our game was inspired by Chrome's dinosaur game in terms of gameplay. For the story and aesthetic, we decided to go with a vegetable theme and keep the tone humorous.  </p>
+    <h2 class="margin"> Code </h2>
+    <p class="margin"> The entire game was coded in swift. Rather than trying to make the character move, we opted to make it look like the character is moving by making everything else move towards him.  </p>
+    <br /> <p class="margin"> Here is the code for the movement of one of the enemies: </p>
+    <img src="enemy-movement.jpg" alt="code for enemy movement" class="margin"/>
+    <p class="margin"> We also needed the character to have a running animation so we created a sprite sheet and had the sourceRect move every 4 frames to make it look like it was running: </p> 
+    <img src="running.jpg" alt="code for running animation" class="margin"/>
+    <p class="margin"> It also needed to jump so we added a jumping and falling animation by changing the character's y coordinate: </p>
+    <img src="jumping.jpg" alt="code for jumping" class="margin"/>
+    <img src="falling.jpg" alt="code for falling" class="margin"/>
+     <p class="margin"> Lastly, the game needed to transition between the start, game, and end so we used scenes to make these transitions happen. Here is the code for the transition to the death screen as well as other code that is run when the player dies: </p>
+    <img src="death.jpg" alt="code for death" class="margin"/>
+    
+    <h2 class="margin"> Conclusions </h2>
+    <p class="margin"> Upon completion, our fine project was overall a success, but despite that, their were some issues. Because the positions of the obstacles were randomized it was very difficult to get them so that they would be always possible to avoid them. After adjusting the speed and position of the obstacles numerous times we managed to get it to where it was possible most of the time to avoid the obstacles, but it was still very common to run into situations where the player couldn't avoid death. However despite these setbacks the game's overall presentation looked great, the character really looked like she was moving and the sound effects and images gave the game a unique charm. </p>
+    
+    <h2 class="margin"> ISP Presentation </h2>
+    <iframe class="margin" src="https://docs.google.com/presentation/d/e/2PACX-1vQPAeihq5TpY2quAy1ojj8_zCmW_dxqK4ck3En9cYR8zb6gfj1dzlk8paVJ6zm4-No1EW4RPNqJ0OQ0/embed?start=false&loop=false&delayms=3000" style="border:none;" width="480" height="299" allowFullscreen></iframe>
+    
+    <br /> <br />
+    <a href=index.html class="margin" title="Link to education page"> &lt;- Back to Education </a>
+											<br /> 
+							  
+    <a href=index.html class="margin" title="Link to home page"> &lt;&lt;- Back to Home </a>
+  </body>
+
+  </html>

@@ -1,0 +1,25 @@
+
+p {font-family: Tahoma;
+   font-size: 12pt;
+   color: #000000;}
+ul {font-family: Tahoma;
+    font-size: 12pt;
+    color: #000000;
+    padding-left:0;}
+dl {font-family: Tahoma;
+    font-size: 12pt;
+    color: #000000;
+    padding-left:0;}
+
+a {font-family: Tahoma;
+   font-size: 12pt;}
+h1 {font-family: Verdana;
+    font-size: 30pt;
+    color: #000000;}
+h2 {font-family: Verdana;
+    font-size: 16pt;
+    color: #000000;}
+body {background-color: #80e5ff;
+      text-align: left;}
+.margin {margin-left: 20px;}
+
