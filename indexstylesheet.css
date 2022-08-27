@@ -1,4 +1,3 @@
-
 p {font-family: Tahoma;
    font-size: 12pt;
    color: #000000;}
@@ -16,4 +15,14 @@ h2 {font-family: Verdana;
     color: #000000;}
 body {background-color: #80e5ff;
       text-align: center;}
-
+.bottomLeft {
+    text-align: left;
+    position: fixed;
+    bottom: 5px;
+    left: 5px;
+}
+.margin {margin-left: 20px;
+	 margin-right: 20px;
+	text-indent: 48px;}
+.noIndentMargin {margin-left: 20px;
+		 margin-right: 20px;}
