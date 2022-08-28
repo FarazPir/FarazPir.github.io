@@ -25,3 +25,8 @@ body {background-color: #80e5ff;
 .noIndentMargin {margin-left: 20px;}
 .hangingIndent {margin-left: 164px ;
 		text-indent: -144px;}
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
