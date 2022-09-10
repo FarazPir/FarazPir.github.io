@@ -25,6 +25,7 @@ body {background-color: #80e5ff;
 .noIndentMargin {margin-left: 20px;}
 .hangingIndent {margin-left: 164px ;
 		text-indent: -144px;}
+.bulletPadding {padding-left: 40px;}
 .center {
     display: block;
     margin-left: auto;
