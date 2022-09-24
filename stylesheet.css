@@ -9,7 +9,6 @@ dl {font-family: Tahoma;
     font-size: 12pt;
     color: #000000;
     padding-left:0;}
-
 a {font-family: Tahoma;
    font-size: 12pt;}
 h1 {font-family: Verdana;
@@ -18,11 +17,15 @@ h1 {font-family: Verdana;
 h2 {font-family: Verdana;
     font-size: 16pt;
     color: #000000;}
+h3 {font-family: Verdana;
+    font-size: 14pt;
+    color: #000000;
+    text-indent: 0px !important;}
 body {background-color: #80e5ff;
       text-align: left;}
-.margin {margin-left: 20px;
+.margin {margin: 0px 20px;
 	text-indent: 48px;}
-.noIndentMargin {margin-left: 20px;}
+.noIndentMargin {margin: 0px 20px;}
 .hangingIndent {margin-left: 164px ;
 		text-indent: -144px;}
 .bulletPadding {padding-left: 40px;}
@@ -30,4 +33,11 @@ body {background-color: #80e5ff;
     display: block;
     margin-left: auto;
     margin-right: auto;
+}
+.centerText {
+    text-align: center !important;
+}
+.centerImage {
+    display: flex;
+    justify-content: center;
 }

@@ -20,7 +20,7 @@ body {background-color: #80e5ff;
       text-align: center;}
 nav {
     display: flex;
-    justfiy-content: space-between;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -48,7 +48,7 @@ nav {
     list-style: none;
     display: inline-block;
     padding: 0px 12px;
-    posistion: relative;
+    position: relative;
 }
 
 .nav-links ul li a{
@@ -85,4 +85,8 @@ nav {
 
 .dropdown:hover .dropdown-content {
     display: block;
+}
+
+.uncenter {
+    text-align: left
 }
