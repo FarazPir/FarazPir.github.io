@@ -1,0 +1,44 @@
+p {font-family: Tahoma;
+   font-size: 14pt;
+   color: #000000;}
+ul {font-family: Tahoma;
+    font-size: 14pt;
+    color: #000000;
+    padding-left:0;}
+dl {font-family: Tahoma;
+    font-size: 14pt;
+    color: #000000;
+    padding-left:0;}
+a {font-family: Tahoma;
+   font-size: 14pt;}
+h1 {font-family: Verdana;
+    font-size: 30pt;
+    color: #000000;}
+h2 {font-family: Verdana;
+    font-size: 18pt;
+    color: #000000;}
+h3 {font-family: Verdana;
+    font-size: 16pt;
+    color: #000000;
+    text-indent: 0px !important;}
+body {background-color: #80e5ff;
+      text-align: left;}
+.margin {margin: 0px 200px;
+	text-indent: 48px;}
+.noIndentMargin {margin: 0px 20px;}
+.hangingIndent {padding-left: 48px ;
+		text-indent: -48px;
+		margin: 0px 200px;}
+.bulletPadding {padding-left: 40px;}
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.centerText {
+    text-align: center !important;
+}
+.centerImage {
+    display: flex;
+    justify-content: center;
+}
