@@ -34,7 +34,8 @@ body {background-color: #80e5ff;
 .hangingIndent {padding-left: 48px ;
 		text-indent: -48px;
 		margin: 0px 200px;}
-.bulletPadding {padding-left: 40px;}
+.bulletPadding {padding-left: 40px;
+		text-indent: 0;}
 .center {
     display: block;
     margin-left: auto;
