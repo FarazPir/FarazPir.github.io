@@ -6,13 +6,19 @@ import Igis
      This class is responsible for rendering the background.
    */
 
-//I was assisted Boden, Karthik, Logan, Sophie,
-// I assisted Karthik, Sophie, Robbie, 
+//I was assisted by Boden, Karthik, Logan, Sophie,
+// I assisted Karthik, Sophie, Robbie, Andrew Liu, 
 class Background : RenderableEntity {
     let background : Image
     var canvasSize = Size(width:0, height:0)
-    let metarStations = ["K6L4"]
-   
+    let metarStations = ["K6L4", ]
+
+    func terminalPoint(_ intialPoint: Point, _ radius: Double, _ angle: Double) -> Point {
+        let x = intialPoint.x + Int((cos(angle) * radius))
+        let y = intialPoint.y + Int((sin(angle) * radius))
+        return Point(x: x, y: y)
+    }
+    
     init() {
         guard let backgroundURL = URL(string:"https://www.codermerlin.academy/users/faraz-piracha/Media/us-map.jpg") else {
             fatalError("Failed to create URL for background")
@@ -74,20 +80,29 @@ class Background : RenderableEntity {
         let radius = 20
         let circle1 = Path(fillMode: .fill)
         let circle2 = Path(fillMode: .fill)
-        let cloudCover = currentMetar.sky_cover1 
+        let circleW = Path(fillMode: .fillAndStroke)
+        let circleS = Path(fillMode: .fill)
+        let rectangle : Rectangle
+        let white = FillStyle(color: Color(.white))
+        
+        let cloudCover = currentMetar.sky_cover1
         if cloudCover == "BKN" {
             circle1.arc(center:Point(point), radius: radius, startAngle: 1.5 * Double.pi, endAngle: 0.5 * Double.pi)
             circle2.arc(center:Point(point), radius: radius, startAngle: 0, endAngle: Double.pi)
         } else if cloudCover == "OVC"{
-            circle1.arc(center:Point(point), radius: radius, startAngle: 1.5 * Double.pi, endAngle: 0.5 * Double.pi)
-            circle2.arc(center:Point(point), radius: radius, startAngle: 0, endAngle: Double.pi)
+            circle1.arc(center:Point(point), radius: radius, startAngle: 1.5 * Double.pi, endAngle: 2 * Double.pi)
         } else if cloudCover == "SCT" {
-            circle1.arc(center:Point(point), radius: radius, startAngle: 1.5 * Double.pi, endAngle: 0.5 * Double.pi)
-            circle2.arc(center:Point(point), radius: radius, startAngle: 0, endAngle: Double.pi)
+            circleW.arc(center:Point(point), radius: radius, startAngle: 0, endAngle: 2 * Double.pi)
+            circle2.arc(center:Point(point), radius: radius, startAngle: 1.5 * Double.pi, endAngle: 0.5 * Double.pi)
+            circleS.arc(center:Point(point), radius: radius, startAngle: 0, endAngle: Double.pi)
         } else if cloudCover == "SKC" {
-            circle1.arc(center:Point(point), radius: radius, startAngle: 1.5 * Double.pi, endAngle: 0.5 * Double.pi)
-            circle2.arc(center:Point(point), radius: radius, startAngle: 0, endAngle: Double.pi)
+            circleW.arc(center:Point(point), radius: radius, startAngle: 0, endAngle: 2 * Double.pi)
         } else if cloudCover == "CLR" {
+            let Color = FillStyle(color: Color(.white))
+            let rect = Rect(topLeft:Point(x:Int(point.x-17),y:Int(point.y-20)), size: Size(width: 35, height: 35))
+            rectangle = Rectangle(rect: rect)
+            canvas.render(Color, rectangle)
+        } else {
             circle1.arc(center:Point(point), radius: radius, startAngle: 1.5 * Double.pi, endAngle: 0.5 * Double.pi)
             circle2.arc(center:Point(point), radius: radius, startAngle: 0, endAngle: Double.pi)
         }
@@ -99,14 +114,15 @@ class Background : RenderableEntity {
         let bottomLeft = String(currentMetar.dewpoint_c)
         let bottomRight = currentMetar.station_id
         
-        let tempText = Text(location:Point(x: Int(point.x - 20), y: Int(point.y + 20)), text:topLeft)
-        let altimText = Text(location: Point(x: Int(point.x + 20), y: Int(point.y + 20)), text:topRight)
-        let visText =  Text(location: Point(x: Int(point.x - 20), y: Int(point.y)), text: middleLeft)
+        let tempText = Text(location:Point(x: Int(point.x - 40), y: Int(point.y - 20)), text:topLeft)
+        let altimText = Text(location: Point(x: Int(point.x + 20), y: Int(point.y - 20)), text:topRight)
+        let visText =  Text(location: Point(x: Int(point.x - 40), y: Int(point.y)), text: middleLeft)
         let cloudText = Text(location: Point(x: Int(point.x + 20), y: Int(point.y)), text: middleRight)
-    let dewText = Text(location: Point(x: Int(point.x - 20), y: Int(point.y - 20)), text: bottomLeft)
-    let stationText = Text(location: Point(x: Int(point.x + 20), y: Int(point.y - 20)), text: bottomRight)
-    var color:Color
+        let dewText = Text(location: Point(x: Int(point.x - 40), y: Int(point.y + 20)), text: bottomLeft)
+        let stationText = Text(location: Point(x: Int(point.x + 20), y: Int(point.y + 20)), text: bottomRight)
+        var color:Color
         switch Metars(filePath:metarFile).metars[metarStation]!.flight_category {
+            
         case "VFR":
             color = Color(red: 44, green: 128, blue: 38)
         case "MVFR":
@@ -122,9 +138,13 @@ class Background : RenderableEntity {
         let outerFillColor = FillStyle(color:color)
         let textColor = FillStyle(color: Color(.black))
 
-
-        canvas.render(outerFillColor, circle1,circle2, tempText,textColor, altimText, visText, cloudText, dewText, stationText)
+        let angle = currentMetar.wind_dir_degrees
         
+        let windLine = Path()
+        windLine.moveTo(Point(x: Int(point.x), y: Int(point.y)))
+        windLine.lineTo(terminalPoint(Point(point), Double(radius), Double(angle)))
+
+        canvas.render(outerFillColor, circle1,circle2, white, circleW, circleS, textColor, tempText, altimText, visText, cloudText, dewText, stationText, windLine)
           
     }
     
