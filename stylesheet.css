@@ -33,6 +33,7 @@ body {background-color: #80e5ff;
     display: block;
     margin-left: auto;
     margin-right: auto;
+    otext-align: center !important;
 }
 .centerText {
     text-align: center !important;
