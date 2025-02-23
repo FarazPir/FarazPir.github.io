@@ -219,3 +219,9 @@ img.custom-width {
     max-height: 299px;
 }
 
+.youTube {
+    max-width: 560px;
+    max-height: 315px;
+    border: 0;
+}
+
